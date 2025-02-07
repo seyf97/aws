@@ -12,9 +12,9 @@ Resources:
         CoreInstanceGroup:
           InstanceType: m5.xlarge
           InstanceCount: 2
-        Ec2KeyName: my_key
+        Ec2KeyName: my_key # Replace with your own EC2 keys
       JobFlowRole: EMR_EC2_DefaultRole
       Name: Cluster-1
       ServiceRole: EMR_DefaultRole
       ReleaseLabel: emr-7.7.0
-      LogUri: s3://taxi-project/logs
+      LogUri: s3://taxi-project/logs # Replace with your own S3 URI
