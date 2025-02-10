@@ -1,7 +1,7 @@
 # 🏢 Employee Salary Analysis: 1 Billion Rows with PySpark on AWS EMR
 
 ## 📌 Project Overview
-This project sets up an **Apache Spark job** on **AWS EMR** to find the **youngest active employee with the highest salary** among **1 billion employees** stored in Amazon S3. The dataset must be uploaded to **Amazon S3** before analysis.
+This project sets up an **Apache Spark job** on **AWS EMR** to find the **youngest active employee with the highest salary** among **1 billion employees** stored in Amazon S3.
 
 The project consists of:
 - **`calculate_salary.py`**: A PySpark script that reads a **Parquet** dataset from S3, processes it, and writes the aggregated results back to S3 in **CSV format**.
