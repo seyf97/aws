@@ -12,14 +12,14 @@ Resources:
         CoreInstanceGroup:
           InstanceType: m5.xlarge
           InstanceCount: 2
-        Ec2KeyName: my_key
+        Ec2KeyName: my_key # Replace with your own EC2 keys
       JobFlowRole: EMR_EC2_DefaultRole
       Name: Cluster-1
       ServiceRole: EMR_DefaultRole
       ReleaseLabel: emr-7.7.0
       AutoTerminationPolicy:
         IdleTimeout: 60
-      LogUri: s3://employees-large/logs/
+      LogUri: s3://employees-large/logs # Replace with your own S3 URI
 
   EMRStep:
     Type: AWS::EMR::Step
@@ -33,11 +33,11 @@ Resources:
           - "spark-submit"
           - "--deploy-mode"
           - "cluster"
-          - "s3://employees-large-code/calculate_salary.py"
+          - "s3://employees-large-code/calculate_salary.py" # Replace with your own S3 URI
           - "--input_uri"
-          - "s3://employees-large/"
+          - "s3://employees-large/" # Replace with your own S3 URI
           - "--output_uri"
-          - "s3://employees-large/output"
+          - "s3://employees-large/output" # Replace with your own S3 URI
 
 Outputs:
   EMRClusterId:
