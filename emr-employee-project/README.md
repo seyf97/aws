@@ -48,6 +48,23 @@ aws emr add-steps \
 
 ---
 
+### **4️⃣ Download the Result**
+After the job is done, you can **download and print the result** using the following command:
+
+```sh
+aws s3 cp s3://<your-bucket>/output ./output --recursive --exclude "*" --include "*.csv" && cat ./output/*.csv
+```
+
+#### **📌 Example Console Output:**
+```sh
+id,name,age,salary,is_active
+60326071,Alice,24,150000.0,true
+```
+
+📌 **Replace `<your-bucket>`** with your actual S3 bucket name before running the command.
+
+---
+
 ## 📝 PySpark Script Details (`calculate_salary.py`)
 This script:
 1. **Loads an employee dataset from S3 (Parquet format).**
