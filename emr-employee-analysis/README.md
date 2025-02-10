@@ -55,7 +55,7 @@ After the job is done, you can **download and print the result** using the follo
 aws s3 cp s3://<your-bucket>/output ./output --recursive --exclude "*" --include "*.csv" && cat ./output/*.csv
 ```
 
-#### Example Console Output:**
+#### Example Console Output:
 ```sh
 id,name,age,salary,is_active
 60326071,Alice,24,150000.0,true
