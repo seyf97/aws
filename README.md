@@ -6,7 +6,7 @@ This repository contains two large-scale **Apache Spark** projects running on **
 ### **1️⃣ NY Taxi Fare Analysis (34M Rows)**  
 - **Goal:** Calculate total taxi fares per vendor from NYC taxi trip records (34M+ rows).  
 - **Dataset:** [NYC TLC Trip Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) (Jan-Mar 2016).  
-- **Key Tech:** PySpark, AWS EMR, AWS Cloudformation, Parquet, CSV.  
+- **Key Tech:** PySpark, AWS EMR, AWS Cloudformation, Parquet.  
 - **Project Directory:** [`emr-taxi-analysis/`](./emr-taxi-analysis/)  
 
 ### **2️⃣ Employee Salary Analysis (1B Rows)**  
