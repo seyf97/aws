@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  EMRCluster:
+    Type: AWS::EMR::Cluster
+    Properties:
+      Applications:
+        - Name: Spark
+      Instances:
+        MasterInstanceGroup:
+          InstanceType: m5.xlarge
+          InstanceCount: 1
+        CoreInstanceGroup:
+          InstanceType: m5.xlarge
+          InstanceCount: 2
+        Ec2KeyName: my_key
+      JobFlowRole: EMR_EC2_DefaultRole
+      Name: Cluster-1
+      ServiceRole: EMR_DefaultRole
+      ReleaseLabel: emr-7.7.0
+      AutoTerminationPolicy:
+        IdleTimeout: 60
+      LogUri: s3://employees-large/logs/
+
+  EMRStep:
+    Type: AWS::EMR::Step
+    Properties:
+      JobFlowId: !Ref EMRCluster
+      Name: "Employee Calculation"
+      ActionOnFailure: CANCEL_AND_WAIT
+      HadoopJarStep:
+        Jar: "command-runner.jar"
+        Args:
+          - "spark-submit"
+          - "--deploy-mode"
+          - "cluster"
+          - "s3://employees-large-code/calculate_salary.py"
+          - "--input_uri"
+          - "s3://employees-large/"
+          - "--output_uri"
+          - "s3://employees-large/output"
+
+Outputs:
+  EMRClusterId:
+    Description: "The JobFlowId of the EMR cluster"
+    Value: !Ref EMRCluster
